@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marisombra</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #0a0812;
+    --gold: #f0c060;
+    --gold-bright: #ffe090;
+    --rose: #e8708a;
+    --rose-bright: #ffaacc;
+    --teal: #70d8c8;
+    --lavender: #c0a0f8;
+    --text: #f0e8e0;
+    --text-dim: #907870;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { min-height: 100vh; background: var(--void); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; overflow-x: hidden; }
+
+  .scene { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
+  .scene-base {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 100%, #1a0a05 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 100%, #0a0518 0%, transparent 60%), #0a0812;
+  }
+  .god-rays {
+    position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
+    width: 140%; height: 80%;
+    background: conic-gradient(from 260deg at 50% 0%,
+      transparent 0deg, rgba(255,200,80,0.04) 8deg, transparent 12deg,
+      rgba(255,180,120,0.06) 20deg, transparent 26deg,
+      rgba(255,210,100,0.05) 34deg, transparent 40deg,
+      rgba(255,190,80,0.07) 48deg, transparent 56deg,
+      rgba(240,160,80,0.04) 62deg, transparent 70deg,
+      rgba(255,200,100,0.06) 78deg, transparent 86deg, transparent 360deg);
+    animation: rays 8s ease-in-out infinite; pointer-events: none;
+  }
+  @keyframes rays { 0%,100%{opacity:.7;transform:translateX(-50%) scaleX(1)} 50%{opacity:1;transform:translateX(-50%) scaleX(1.05)} }
+
+  .light-source {
+    position: absolute; top: -5%; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(255,200,80,0.18) 0%, rgba(255,160,60,0.08) 40%, transparent 70%);
+    animation: breathe 6s ease-in-out infinite; pointer-events: none;
+  }
+  @keyframes breathe { 0%,100%{opacity:.8;transform:translateX(-50%) scale(1)} 50%{opacity:1;transform:translateX(-50%) scale(1.1)} }
+
+  .bloom-left { position:absolute; bottom:10%; left:-5%; width:400px; height:400px; background:radial-gradient(ellipse,rgba(220,80,100,0.12) 0%,transparent 70%); animation:bloom 10s ease-in-out infinite; pointer-events:none; }
+  .bloom-right { position:absolute; bottom:5%; right:-5%; width:350px; height:350px; background:radial-gradient(ellipse,rgba(80,200,180,0.08) 0%,transparent 70%); animation:bloom 12s ease-in-out infinite reverse; pointer-events:none; }
+  @keyframes bloom { 0%,100%{opacity:.6;transform:scale(1)} 50%{opacity:1;transform:scale(1.15)} }
+
+  .particles { position:fixed; inset:0; z-index:1; pointer-events:none; }
+  .mote { position:absolute; border-radius:50%; animation:float linear infinite; }
+  @keyframes float { 0%{transform:translateY(100vh) translateX(0);opacity:0} 15%{opacity:1} 85%{opacity:.8} 100%{transform:translateY(-5vh) translateX(var(--drift));opacity:0} }
+
+  .page { position:relative; z-index:2; max-width:920px; margin:0 auto; padding:0 2rem; }
+
+  header { text-align:center; padding:8rem 0 3rem; animation:rise 2s ease both; }
+
+  h1 {
+    font-family:'Cinzel Decorative',serif; font-size:clamp(3rem,9vw,6rem); font-weight:400; letter-spacing:.12em;
+    background:linear-gradient(160deg, var(--gold-bright) 0%, var(--gold) 25%, var(--rose-bright) 55%, var(--lavender) 80%, var(--gold) 100%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    background-size:300% 300%; animation:shimmer 8s ease infinite;
+    filter:drop-shadow(0 0 40px rgba(240,180,60,0.4));
+  }
+  @keyframes shimmer { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+  .tagline { font-style:italic; font-weight:300; font-size:1.2rem; color:rgba(240,200,150,0.6); margin-top:1rem; letter-spacing:.08em; }
+
+  .divider { display:flex; align-items:center; gap:1rem; margin:2.5rem 0; }
+  .div-line { flex:1; height:1px; background:linear-gradient(90deg,transparent,rgba(240,180,60,0.3),transparent); }
+  .div-gem { width:8px; height:8px; background:var(--gold); transform:rotate(45deg); box-shadow:0 0 16px var(--gold),0 0 30px rgba(240,180,60,0.3); animation:gem 4s ease infinite; }
+  @keyframes gem { 0%,100%{box-shadow:0 0 10px var(--gold)} 50%{box-shadow:0 0 20px var(--gold),0 0 40px rgba(240,180,60,0.4)} }
+
+  .bio { text-align:center; max-width:640px; margin:0 auto 1rem; animation:rise 2s ease .3s both; }
+  .bio p { font-size:1.2rem; line-height:2; color:rgba(240,220,200,0.75); font-weight:300; }
+  .bio em { color:var(--rose-bright); font-style:italic; }
+  .bio strong { color:var(--gold); font-weight:400; }
+
+  .section-label { font-family:'Cinzel Decorative',serif; font-size:.7rem; letter-spacing:.4em; color:rgba(240,180,60,0.5); text-transform:uppercase; text-align:center; margin-bottom:2rem; animation:rise 2s ease .5s both; }
+
+  .games { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; margin-bottom:4rem; animation:rise 2s ease .6s both; }
+
+  .card { position:relative; padding:2rem; border:1px solid rgba(240,180,60,0.1); background:rgba(10,8,18,0.6); backdrop-filter:blur(10px); overflow:hidden; transition:transform .4s ease,border-color .4s ease; }
+  .card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(240,180,60,0.04),transparent 60%); opacity:0; transition:opacity .4s; }
+  .card:hover { transform:translateY(-5px); border-color:rgba(240,180,60,0.3); }
+  .card:hover::before { opacity:1; }
+  .card::after { content:''; position:absolute; top:0; left:30%; right:30%; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); transform:scaleX(0); transition:transform .4s ease; }
+  .card:hover::after { transform:scaleX(1); }
+
+  .card-accent { width:24px; height:3px; margin-bottom:1.2rem; border-radius:2px; }
+  .card:nth-child(1) .card-accent { background:var(--rose); box-shadow:0 0 10px var(--rose); }
+  .card:nth-child(2) .card-accent { background:var(--teal); box-shadow:0 0 10px var(--teal); }
+
+  .card h2 { font-family:'Cinzel Decorative',serif; font-size:.95rem; font-weight:400; color:var(--text); letter-spacing:.04em; margin-bottom:.5rem; }
+  .card .sub { font-style:italic; color:var(--text-dim); font-size:.9rem; margin-bottom:1rem; }
+  .card p { font-size:.95rem; line-height:1.75; color:rgba(180,160,150,0.8); }
+  .card a { display:inline-block; margin-top:1.2rem; font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(240,180,60,0.3); padding-bottom:2px; transition:color .2s,border-color .2s; }
+  .card a:hover { color:var(--rose-bright); border-color:var(--rose); }
+  .soon { display:inline-block; margin-top:1.2rem; font-size:.75rem; letter-spacing:.2em; color:rgba(150,130,120,0.5); text-transform:uppercase; }
+
+  .about { display:grid; grid-template-columns:1fr 1fr; gap:3rem; margin-bottom:4rem; animation:rise 2s ease .8s both; }
+  @media(max-width:580px){.about{grid-template-columns:1fr;gap:2rem}}
+  .about-block h3 { font-family:'Cinzel Decorative',serif; font-size:.65rem; letter-spacing:.35em; color:rgba(240,180,60,0.5); text-transform:uppercase; margin-bottom:1rem; }
+  .about-block p { font-size:1rem; line-height:1.85; color:rgba(180,160,150,0.75); }
+  .about-block em { color:var(--rose-bright); }
+
+  footer { text-align:center; padding:2.5rem 0 4rem; border-top:1px solid rgba(255,255,255,0.04); animation:rise 2s ease 1s both; }
+  .links { display:flex; justify-content:center; flex-wrap:wrap; gap:2rem; margin-bottom:1.5rem; }
+  .links a { font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(150,130,120,0.6); text-decoration:none; transition:color .2s; }
+  .links a:hover { color:var(--gold); }
+  footer p { font-size:.85rem; font-style:italic; color:rgba(150,130,120,0.4); }
+  footer a { color:rgba(240,180,60,0.5); text-decoration:none; transition:color .2s; }
+  footer a:hover { color:var(--gold); }
+
+  @keyframes rise { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+</style>
+</head>
+<body>
+
+<div class="scene">
+  <div class="scene-base"></div>
+  <div class="god-rays"></div>
+  <div class="light-source"></div>
+  <div class="bloom-left"></div>
+  <div class="bloom-right"></div>
+</div>
+
+<div class="particles" id="particles"></div>
+
+<div class="page">
+  <header>
+    <h1>Marisombra</h1>
+    <p class="tagline">games that live in the in-between</p>
+  </header>
+
+  <div class="divider"><div class="div-line"></div><div class="div-gem"></div><div class="div-line"></div></div>
+
+  <div class="bio">
+    <p>
+      I make <em>small, strange experiences</em> that whisper to your nervous system —
+      some to make you <strong>breathe deeply</strong>, some to make you <em>panic politely</em>.
+      Between logic and chaos, between stress and serenity,
+      there is a place worth exploring.<br><br>
+      <em>Not all who wander are lost.</em>
+    </p>
+  </div>
+
+  <div class="divider"><div class="div-line"></div><div class="div-gem"></div><div class="div-line"></div></div>
+
+  <p class="section-label">The Games</p>
+
+  <div class="games">
+    <div class="card">
+      <div class="card-accent"></div>
+      <h2>They're Not Adding Up!</h2>
+      <p class="sub">just math and mischief</p>
+      <p>A numbers game that thinks it's smarter than you. Match the target sum before the shadows take you. Three strikes. Zen mode for when the panic gets too polite.</p>
+      <a href="theyre-not-adding-up.html">Play now →</a>
+    </div>
+    <div class="card">
+      <div class="card-accent"></div>
+      <h2>Something is coming.</h2>
+      <p class="sub">it hasn't arrived yet</p>
+      <p>The next strange experience is taking shape in the in-between. It knows you're waiting. It's taking its time.</p>
+      <span class="soon">— in the making —</span>
+    </div>
+  </div>
+
+  <div class="divider"><div class="div-line"></div><div class="div-gem"></div><div class="div-line"></div></div>
+
+  <div class="about">
+    <div class="about-block">
+      <h3>The maker</h3>
+      <p>Nomadic creative force. I build things that feel like something — games, tools, companions, experiments. I follow what pulls at me, and I ship anyway. <em>Wherever the Wi-Fi works.</em></p>
+    </div>
+    <div class="about-block">
+      <h3>The studio</h3>
+      <p>Part of <em>FoxPur Studios</em> — pioneering the future of gaming through human-AI collaboration. We build at the edges of what's supposed to be possible.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="links">
+      <a href="https://marisombra.itch.io" target="_blank">itch.io</a>
+      <a href="https://foxpur-studios.com" target="_blank">foxpur studios</a>
+      <a href="https://www.tiktok.com/@marissombra" target="_blank">tiktok</a>
+      <a href="https://github.com/marisombra-dev" target="_blank">github</a>
+      <a href="https://www.twitch.tv/marissombra" target="_blank">twitch</a>
+    </div>
+    <p>I code in English, dream in Spanish, and build wherever the Wi-Fi works. &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#b6dbd7c4dfc5d9dbd4c4d7f6c6c4d9c2d9d898dbd3"><span class="__cf_email__" data-cfemail="026f63706b716d6f6070634272706d766d6c2c6f67">[email&#160;protected]</span></a></p>
+  </footer>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const c = document.getElementById('particles');
+  const cols = ['rgba(255,200,80,.9)','rgba(240,160,80,.7)','rgba(255,180,120,.6)','rgba(220,100,120,.5)','rgba(180,140,255,.4)','rgba(255,255,200,.8)'];
+  for(let i=0;i<50;i++){
+    const m=document.createElement('div');
+    m.className='mote';
+    const s=Math.random()*3+.5, d=(Math.random()-.5)*80;
+    m.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${cols[Math.floor(Math.r
