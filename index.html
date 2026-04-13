@@ -14,6 +14,7 @@
     --rose-bright: #ffaacc;
     --teal: #70d8c8;
     --lavender: #c0a0f8;
+    --amber: #f0a050;
     --text: #f0e8e0;
     --text-dim: #907870;
   }
@@ -57,7 +58,7 @@
   .mote { position:absolute; border-radius:50%; animation:float linear infinite; }
   @keyframes float { 0%{transform:translateY(100vh) translateX(0);opacity:0} 15%{opacity:1} 85%{opacity:.8} 100%{transform:translateY(-5vh) translateX(var(--drift));opacity:0} }
 
-  .page { position:relative; z-index:2; max-width:920px; margin:0 auto; padding:0 2rem; }
+  .page { position:relative; z-index:2; max-width:960px; margin:0 auto; padding:0 2rem; }
 
   header { text-align:center; padding:8rem 0 3rem; animation:rise 2s ease both; }
 
@@ -84,25 +85,42 @@
 
   .section-label { font-family:'Cinzel Decorative',serif; font-size:.7rem; letter-spacing:.4em; color:rgba(240,180,60,0.5); text-transform:uppercase; text-align:center; margin-bottom:2rem; animation:rise 2s ease .5s both; }
 
-  .games { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; margin-bottom:4rem; animation:rise 2s ease .6s both; }
+  /* Grid for apps/games */
+  .grid-2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; margin-bottom:2rem; animation:rise 2s ease .6s both; }
+
+  /* Full width card */
+  .grid-full { margin-bottom:4rem; animation:rise 2s ease .65s both; }
 
   .card { position:relative; padding:2rem; border:1px solid rgba(240,180,60,0.1); background:rgba(10,8,18,0.6); backdrop-filter:blur(10px); overflow:hidden; transition:transform .4s ease,border-color .4s ease; }
   .card::before { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(135deg,rgba(240,180,60,0.04),transparent 60%); opacity:0; transition:opacity .4s; }
-  .card:hover { transform:translateY(-5px); border-color:rgba(240,180,60,0.3); }
+  .card:hover { transform:translateY(-4px); border-color:rgba(240,180,60,0.3); }
   .card:hover::before { opacity:1; }
   .card::after { content:''; position:absolute; top:0; pointer-events:none; left:30%; right:30%; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); transform:scaleX(0); transition:transform .4s ease; }
   .card:hover::after { transform:scaleX(1); }
 
   .card-accent { width:24px; height:3px; margin-bottom:1.2rem; border-radius:2px; }
-  .card:nth-child(1) .card-accent { background:var(--rose); box-shadow:0 0 10px var(--rose); }
-  .card:nth-child(2) .card-accent { background:var(--teal); box-shadow:0 0 10px var(--teal); }
+  .card.rose .card-accent  { background:var(--rose);     box-shadow:0 0 10px var(--rose); }
+  .card.teal .card-accent  { background:var(--teal);     box-shadow:0 0 10px var(--teal); }
+  .card.gold .card-accent  { background:var(--gold);     box-shadow:0 0 10px var(--gold); }
+  .card.amber .card-accent { background:var(--amber);    box-shadow:0 0 10px var(--amber); }
 
   .card h2 { font-family:'Cinzel Decorative',serif; font-size:.95rem; font-weight:400; color:var(--text); letter-spacing:.04em; margin-bottom:.5rem; }
   .card .sub { font-style:italic; color:var(--text-dim); font-size:.9rem; margin-bottom:1rem; }
   .card p { font-size:.95rem; line-height:1.75; color:rgba(180,160,150,0.8); }
-  .card a { display:inline-block; margin-top:1.2rem; font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(240,180,60,0.3); padding-bottom:2px; transition:color .2s,border-color .2s; }
-  .card a:hover { color:var(--rose-bright); border-color:var(--rose); }
-  .soon { display:inline-block; margin-top:1.2rem; font-size:.75rem; letter-spacing:.2em; color:rgba(150,130,120,0.5); text-transform:uppercase; }
+  .card a.cta { display:inline-block; margin-top:1.2rem; font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(240,180,60,0.3); padding-bottom:2px; transition:color .2s,border-color .2s; }
+  .card a.cta:hover { color:var(--rose-bright); border-color:var(--rose); }
+
+  /* Books grid — 3 columns on wide, 1 on mobile */
+  .books-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; margin-bottom:1rem; }
+  .book-card { position:relative; padding:1.8rem; border:1px solid rgba(240,180,60,0.1); background:rgba(10,8,18,0.6); backdrop-filter:blur(10px); transition:transform .4s ease,border-color .4s ease; }
+  .book-card:hover { transform:translateY(-4px); border-color:rgba(240,180,60,0.25); }
+  .book-card .book-num { font-family:'Cinzel Decorative',serif; font-size:.6rem; letter-spacing:.35em; color:rgba(240,180,60,0.45); text-transform:uppercase; margin-bottom:.8rem; }
+  .book-card h3 { font-family:'Cinzel Decorative',serif; font-size:.88rem; font-weight:400; color:var(--text); letter-spacing:.03em; margin-bottom:.4rem; }
+  .book-card .book-sub { font-style:italic; color:var(--text-dim); font-size:.85rem; margin-bottom:.9rem; }
+  .book-card p { font-size:.9rem; line-height:1.7; color:rgba(180,160,150,0.75); margin-bottom:1rem; }
+  .book-card a.buy { display:inline-block; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(240,180,60,0.3); padding-bottom:2px; transition:color .2s,border-color .2s; }
+  .book-card a.buy:hover { color:var(--rose-bright); border-color:var(--rose); }
+  .book-card .coming { font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(150,130,120,0.4); }
 
   .about { display:grid; grid-template-columns:1fr 1fr; gap:3rem; margin-bottom:4rem; animation:rise 2s ease .8s both; }
   @media(max-width:580px){.about{grid-template-columns:1fr;gap:2rem}}
@@ -119,6 +137,7 @@
   footer a:hover { color:var(--gold); }
 
   @keyframes rise { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  @media(max-width:580px){ .grid-2{grid-template-columns:1fr} .books-grid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -136,39 +155,69 @@
 <div class="page">
   <header>
     <h1>Marisombra</h1>
-    <p class="tagline">games that live in the in-between</p>
+    <p class="tagline">games, words, and things that feel like something</p>
   </header>
 
   <div class="divider"><div class="div-line"></div><div class="div-gem"></div><div class="div-line"></div></div>
 
   <div class="bio">
     <p>
-      I make <em>small, strange experiences</em> that whisper to your nervous system —
-      some to make you <strong>breathe deeply</strong>, some to make you <em>panic politely</em>.
-      Between logic and chaos, between stress and serenity,
-      there is a place worth exploring.<br><br>
-      <em>Not all who wander are lost.</em>
+      I make <em>things that feel like something</em> — games that live in the in-between,
+      apps that quietly change your day, and books that leave you with the lights still on.<br><br>
+      I write under the name <strong>Mari Sombra</strong>. I build apps as <strong>Marisombra</strong>.
+      The thread running through all of it is the same: <em>small, deliberate things
+      that reach you somewhere real.</em><br><br>
+      Between logic and chaos, between who you are and who you want to be —
+      <strong>there is a place worth exploring.</strong>
     </p>
   </div>
 
   <div class="divider"><div class="div-line"></div><div class="div-gem"></div><div class="div-line"></div></div>
 
-  <p class="section-label">Explore</p>
+  <p class="section-label">Apps &amp; Games</p>
 
-  <div class="games">
-    <div class="card">
+  <div class="grid-2">
+    <div class="card rose">
       <div class="card-accent"></div>
       <h2>They're Not Adding Up!</h2>
       <p class="sub">just math and mischief</p>
       <p>A numbers game that thinks it's smarter than you. Match the target sum before the shadows take you. Three strikes. Zen mode for when the panic gets too polite.</p>
-      <a href="theyre-not-adding-up.html">Play now →</a>
+      <a class="cta" href="theyre-not-adding-up.html">Play now →</a>
     </div>
-    <div class="card">
+    <div class="card teal">
       <div class="card-accent"></div>
       <h2>One Small Thing</h2>
       <p class="sub">a daily practice for connection</p>
-      <p>One small, actionable thing delivered to your inbox every day. For couples who want to feel closer. For anyone learning to feel at home in their own skin.</p>
-      <a href="https://onesmallthing.eu" target="_blank">Discover it →</a>
+      <p>One small, actionable thing. Every day. For couples who want to feel closer. For anyone learning to feel at home in their own skin. 365 days of original content — warm, honest, human.</p>
+      <a class="cta" href="https://onesmallthing.eu" target="_blank">Discover it →</a>
+    </div>
+  </div>
+
+  <div class="divider"><div class="div-line"></div><div class="div-gem"></div><div class="div-line"></div></div>
+
+  <p class="section-label">The Closer Connection Series</p>
+
+  <div class="books-grid">
+    <div class="book-card">
+      <div class="book-num">Book One</div>
+      <h3>30 Days to a Closer Connection</h3>
+      <p class="book-sub">where it begins</p>
+      <p>Thirty invitations into warmth, presence, and the quiet art of showing up — for the people you love, and for yourself.</p>
+      <a class="buy" href="https://www.amazon.com/dp/B0GWD6QXJH" target="_blank">Read on Kindle →</a>
+    </div>
+    <div class="book-card">
+      <div class="book-num">Book Two</div>
+      <h3>Another 30 Days</h3>
+      <p class="book-sub">a collection of invitations</p>
+      <p>The invitations go deeper. On one side: the prompt. On the other: a short scene showing what happens when someone says yes. Every scene ends just before the most interesting part.</p>
+      <a class="buy" href="https://www.amazon.com/dp/B0GX1T3Q3D" target="_blank">Read on Kindle →</a>
+    </div>
+    <div class="book-card">
+      <div class="book-num">Book Three</div>
+      <h3>Coming Soon</h3>
+      <p class="book-sub">the series continues</p>
+      <p>The third chapter is on its way. The pages will turn differently again. Some things are worth the wait.</p>
+      <span class="coming">Coming soon</span>
     </div>
   </div>
 
@@ -177,11 +226,11 @@
   <div class="about">
     <div class="about-block">
       <h3>The maker</h3>
-      <p>Nomadic creative force. I build things that feel like something — games, tools, companions, experiments. I follow what pulls at me, and I ship anywhere. <em>Wherever the Wi-Fi works.</em></p>
+      <p>Writer, app maker, game developer. I build things that feel like something — games, apps, daily practices, short fiction. I follow what pulls at me and I ship from wherever I am. Currently: <em>Portimão, Portugal.</em></p>
     </div>
     <div class="about-block">
       <h3>The studio</h3>
-      <p>Part of <em>FoxPur Studios</em> — pioneering the future of gaming through human-AI collaboration. We build at the edges of what's supposed to be possible.</p>
+      <p>Part of <em>FoxPur Studios</em> — building at the edges of what's supposed to be possible, through human-AI collaboration. Games, tools, experiences, words. Whatever comes next.</p>
     </div>
   </div>
 
@@ -189,19 +238,25 @@
     <div class="links">
       <a href="https://marisombra.itch.io" target="_blank">itch.io</a>
       <a href="https://foxpur-studios.com" target="_blank">foxpur studios</a>
+      <a href="https://onesmallthing.eu" target="_blank">one small thing</a>
       <a href="https://www.tiktok.com/@marissombra" target="_blank">tiktok</a>
       <a href="https://github.com/marisombra-dev" target="_blank">github</a>
       <a href="https://www.twitch.tv/marissombra" target="_blank">twitch</a>
     </div>
-    <p>I code in English, dream in Spanish, and build wherever the Wi-Fi works. &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#b6dbd7c4dfc5d9dbd4c4d7f6c6c4d9c2d9d898dbd3"><span class="__cf_email__" data-cfemail="026f63706b716d6f6070634272706d766d6c2c6f67">[email&#160;protected]</span></a></p>
+    <p>I code in English, dream in Spanish, and build wherever the Wi-Fi works. &nbsp;·&nbsp; <a href="mailto:hello@foxpur-studios.com">hello@foxpur-studios.com</a></p>
   </footer>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const c = document.getElementById('particles');
   const cols = ['rgba(255,200,80,.9)','rgba(240,160,80,.7)','rgba(255,180,120,.6)','rgba(220,100,120,.5)','rgba(180,140,255,.4)','rgba(255,255,200,.8)'];
   for(let i=0;i<50;i++){
     const m=document.createElement('div');
     m.className='mote';
     const s=Math.random()*3+.5, d=(Math.random()-.5)*80;
-    m.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${cols[Math.floor(Math.r
+    m.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${cols[Math.floor(Math.random()*cols.length)]};--drift:${d}px;animation-duration:${Math.random()*15+10}s;animation-delay:-${Math.random()*20}s`;
+    c.appendChild(m);
+  }
+</script>
+</body>
+</html>
