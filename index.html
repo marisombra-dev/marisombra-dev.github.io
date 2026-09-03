@@ -3,277 +3,118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="Z2wgY5KCUXfICsK_Avugqd3GnhTm41Roqr71EpPVbK8" />
-<title>Marisombra — Games, Apps & Books by Mari Sombra</title>
-<meta name="description" content="Marisombra makes games, apps, and books that feel like something. Creator of They're Not Adding Up, One Small Thing, and The Closer Connection Series. Based in Portimão, Portugal.">
-<meta name="keywords" content="Marisombra, Mari Sombra, indie games, One Small Thing, They're Not Adding Up, closer connection series, relationship books, kindle books, FoxPur Studios">
-<meta name="author" content="Mari Sombra">
+<meta name="google-site-verification" content="Z2wgY5KCUXfICsK_Avugqd3GnhTm41Roqr71EpPVbK8">
+<title>Questions Worth Following — Patricia M. Purtill</title>
+<meta name="description" content="Books, practical tools, and the occasional game by Patricia M. Purtill. Featuring LiveCompass, PisoLive, They're Not Adding Up!, and recent books on relationships and the power of maps.">
+<meta name="author" content="Patricia M. Purtill">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://marisombra-dev.github.io/">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Marisombra — Games, Apps & Books by Mari Sombra">
-<meta property="og:description" content="Games, apps, and books that feel like something. Creator of One Small Thing and The Closer Connection Series.">
+<meta property="og:title" content="Questions Worth Following — Patricia M. Purtill">
+<meta property="og:description" content="I follow interesting questions until they become books, tools, or occasionally games.">
 <meta property="og:url" content="https://marisombra-dev.github.io/">
 <meta property="og:type" content="website">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Marisombra — Games, Apps & Books">
-<meta name="twitter:description" content="Games, apps, and books that feel like something. Creator of One Small Thing and The Closer Connection Series.">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --void: #0a0812;
-    --gold: #f0c060;
-    --gold-bright: #ffe090;
-    --rose: #e8708a;
-    --rose-bright: #ffaacc;
-    --teal: #70d8c8;
-    --lavender: #c0a0f8;
-    --amber: #f0a050;
-    --text: #f0e8e0;
-    --text-dim: #907870;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { min-height: 100vh; background: var(--void); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; overflow-x: hidden; }
-
-  .scene { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
-  .scene-base {
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 20% 100%, #1a0a05 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 100%, #0a0518 0%, transparent 60%), #0a0812;
-  }
-  .god-rays {
-    position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
-    width: 140%; height: 80%;
-    background: conic-gradient(from 260deg at 50% 0%,
-      transparent 0deg, rgba(255,200,80,0.04) 8deg, transparent 12deg,
-      rgba(255,180,120,0.06) 20deg, transparent 26deg,
-      rgba(255,210,100,0.05) 34deg, transparent 40deg,
-      rgba(255,190,80,0.07) 48deg, transparent 56deg,
-      rgba(240,160,80,0.04) 62deg, transparent 70deg,
-      rgba(255,200,100,0.06) 78deg, transparent 86deg, transparent 360deg);
-    animation: rays 8s ease-in-out infinite; pointer-events: none;
-  }
-  @keyframes rays { 0%,100%{opacity:.7;transform:translateX(-50%) scaleX(1)} 50%{opacity:1;transform:translateX(-50%) scaleX(1.05)} }
-
-  .light-source {
-    position: absolute; top: -5%; left: 50%; transform: translateX(-50%);
-    width: 600px; height: 300px;
-    background: radial-gradient(ellipse, rgba(255,200,80,0.18) 0%, rgba(255,160,60,0.08) 40%, transparent 70%);
-    animation: breathe 6s ease-in-out infinite; pointer-events: none;
-  }
-  @keyframes breathe { 0%,100%{opacity:.8;transform:translateX(-50%) scale(1)} 50%{opacity:1;transform:translateX(-50%) scale(1.1)} }
-
-  .bloom-left { position:absolute; bottom:10%; left:-5%; width:400px; height:400px; background:radial-gradient(ellipse,rgba(220,80,100,0.12) 0%,transparent 70%); animation:bloom 10s ease-in-out infinite; pointer-events:none; }
-  .bloom-right { position:absolute; bottom:5%; right:-5%; width:350px; height:350px; background:radial-gradient(ellipse,rgba(80,200,180,0.08) 0%,transparent 70%); animation:bloom 12s ease-in-out infinite reverse; pointer-events:none; }
-  @keyframes bloom { 0%,100%{opacity:.6;transform:scale(1)} 50%{opacity:1;transform:scale(1.15)} }
-
-  .particles { position:fixed; inset:0; z-index:1; pointer-events:none; }
-  .mote { position:absolute; border-radius:50%; animation:float linear infinite; }
-  @keyframes float { 0%{transform:translateY(100vh) translateX(0);opacity:0} 15%{opacity:1} 85%{opacity:.8} 100%{transform:translateY(-5vh) translateX(var(--drift));opacity:0} }
-
-  .page { position:relative; z-index:2; max-width:960px; margin:0 auto; padding:0 2rem; }
-
-  header { text-align:center; padding:8rem 0 3rem; animation:rise 2s ease both; }
-
-  h1 {
-    font-family:'Cinzel Decorative',serif; font-size:clamp(3rem,9vw,6rem); font-weight:400; letter-spacing:.12em;
-    background:linear-gradient(160deg, var(--gold-bright) 0%, var(--gold) 25%, var(--rose-bright) 55%, var(--lavender) 80%, var(--gold) 100%);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-    background-size:300% 300%; animation:shimmer 8s ease infinite;
-    filter:drop-shadow(0 0 40px rgba(240,180,60,0.4));
-  }
-  @keyframes shimmer { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
-
-  .tagline { font-style:italic; font-weight:300; font-size:1.2rem; color:rgba(240,200,150,0.6); margin-top:1rem; letter-spacing:.08em; }
-
-  .divider { display:flex; align-items:center; gap:1rem; margin:2.5rem 0; }
-  .div-line { flex:1; height:1px; background:linear-gradient(90deg,transparent,rgba(240,180,60,0.3),transparent); }
-  .div-gem { width:8px; height:8px; background:var(--gold); transform:rotate(45deg); box-shadow:0 0 16px var(--gold),0 0 30px rgba(240,180,60,0.3); animation:gem 4s ease infinite; }
-  @keyframes gem { 0%,100%{box-shadow:0 0 10px var(--gold)} 50%{box-shadow:0 0 20px var(--gold),0 0 40px rgba(240,180,60,0.4)} }
-
-  .bio { text-align:center; max-width:640px; margin:0 auto 1rem; animation:rise 2s ease .3s both; }
-  .bio p { font-size:1.2rem; line-height:2; color:rgba(240,220,200,0.75); font-weight:300; }
-  .bio em { color:var(--rose-bright); font-style:italic; }
-  .bio strong { color:var(--gold); font-weight:400; }
-
-  .section-label { font-family:'Cinzel Decorative',serif; font-size:.7rem; letter-spacing:.4em; color:rgba(240,180,60,0.5); text-transform:uppercase; text-align:center; margin-bottom:2rem; animation:rise 2s ease .5s both; }
-
-  /* Grid for apps/games */
-  .grid-2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; margin-bottom:2rem; animation:rise 2s ease .6s both; }
-
-  /* Full width card */
-  .grid-full { margin-bottom:4rem; animation:rise 2s ease .65s both; }
-
-  .card { position:relative; padding:2rem; border:1px solid rgba(240,180,60,0.1); background:rgba(10,8,18,0.6); backdrop-filter:blur(10px); overflow:hidden; transition:transform .4s ease,border-color .4s ease; }
-  .card::before { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(135deg,rgba(240,180,60,0.04),transparent 60%); opacity:0; transition:opacity .4s; }
-  .card:hover { transform:translateY(-4px); border-color:rgba(240,180,60,0.3); }
-  .card:hover::before { opacity:1; }
-  .card::after { content:''; position:absolute; top:0; pointer-events:none; left:30%; right:30%; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); transform:scaleX(0); transition:transform .4s ease; }
-  .card:hover::after { transform:scaleX(1); }
-
-  .card-accent { width:24px; height:3px; margin-bottom:1.2rem; border-radius:2px; }
-  .card.rose .card-accent  { background:var(--rose);     box-shadow:0 0 10px var(--rose); }
-  .card.teal .card-accent  { background:var(--teal);     box-shadow:0 0 10px var(--teal); }
-  .card.gold .card-accent  { background:var(--gold);     box-shadow:0 0 10px var(--gold); }
-  .card.amber .card-accent { background:var(--amber);    box-shadow:0 0 10px var(--amber); }
-
-  .card h2 { font-family:'Cinzel Decorative',serif; font-size:.95rem; font-weight:400; color:var(--text); letter-spacing:.04em; margin-bottom:.5rem; }
-  .card .sub { font-style:italic; color:var(--text-dim); font-size:.9rem; margin-bottom:1rem; }
-  .card p { font-size:.95rem; line-height:1.75; color:rgba(180,160,150,0.8); }
-  .card a.cta { display:inline-block; margin-top:1.2rem; font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(240,180,60,0.3); padding-bottom:2px; transition:color .2s,border-color .2s; }
-  .card a.cta:hover { color:var(--rose-bright); border-color:var(--rose); }
-
-  /* Books grid — 3 columns on wide, 1 on mobile */
-  .books-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; margin-bottom:1rem; }
-  .book-card { position:relative; padding:1.8rem; border:1px solid rgba(240,180,60,0.1); background:rgba(10,8,18,0.6); backdrop-filter:blur(10px); transition:transform .4s ease,border-color .4s ease; }
-  .book-card:hover { transform:translateY(-4px); border-color:rgba(240,180,60,0.25); }
-  .book-card .book-num { font-family:'Cinzel Decorative',serif; font-size:.6rem; letter-spacing:.35em; color:rgba(240,180,60,0.45); text-transform:uppercase; margin-bottom:.8rem; }
-  .book-card h3 { font-family:'Cinzel Decorative',serif; font-size:.88rem; font-weight:400; color:var(--text); letter-spacing:.03em; margin-bottom:.4rem; }
-  .book-card .book-sub { font-style:italic; color:var(--text-dim); font-size:.85rem; margin-bottom:.9rem; }
-  .book-card p { font-size:.9rem; line-height:1.7; color:rgba(180,160,150,0.75); margin-bottom:1rem; }
-  .book-card a.buy { display:inline-block; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(240,180,60,0.3); padding-bottom:2px; transition:color .2s,border-color .2s; }
-  .book-card a.buy:hover { color:var(--rose-bright); border-color:var(--rose); }
-  .book-card .coming { font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(150,130,120,0.4); }
-
-  .about { display:grid; grid-template-columns:1fr 1fr; gap:3rem; margin-bottom:4rem; animation:rise 2s ease .8s both; }
-  @media(max-width:580px){.about{grid-template-columns:1fr;gap:2rem}}
-  .about-block h3 { font-family:'Cinzel Decorative',serif; font-size:.65rem; letter-spacing:.35em; color:rgba(240,180,60,0.5); text-transform:uppercase; margin-bottom:1rem; }
-  .about-block p { font-size:1rem; line-height:1.85; color:rgba(180,160,150,0.75); }
-  .about-block em { color:var(--rose-bright); }
-
-  footer { text-align:center; padding:2.5rem 0 4rem; border-top:1px solid rgba(255,255,255,0.04); animation:rise 2s ease 1s both; }
-  .links { display:flex; justify-content:center; flex-wrap:wrap; gap:2rem; margin-bottom:1.5rem; }
-  .links a { font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(150,130,120,0.6); text-decoration:none; transition:color .2s; }
-  .links a:hover { color:var(--gold); }
-  footer p { font-size:.85rem; font-style:italic; color:rgba(150,130,120,0.4); }
-  footer a { color:rgba(240,180,60,0.5); text-decoration:none; transition:color .2s; }
-  footer a:hover { color:var(--gold); }
-
-  @keyframes rise { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-  @media(max-width:580px){ .grid-2{grid-template-columns:1fr} .books-grid{grid-template-columns:1fr} }
+:root{--paper:#f5f0e6;--paper2:#fffdf8;--ink:#18242a;--muted:#667177;--teal:#1e6d6b;--teal2:#d9ece7;--coral:#c56a4c;--gold:#bd8b32;--blue:#4e7080;--sage:#70795d;--line:rgba(24,36,42,.14);--shadow:0 20px 60px rgba(31,41,44,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit}.shell{width:min(1180px,calc(100% - 40px));margin:auto}.serif{font-family:'Newsreader',serif}
+body:before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.32;background-image:radial-gradient(circle at 18% 12%,rgba(197,106,76,.11),transparent 25%),radial-gradient(circle at 86% 28%,rgba(30,109,107,.11),transparent 28%),linear-gradient(rgba(24,36,42,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(24,36,42,.025) 1px,transparent 1px);background-size:auto,auto,32px 32px,32px 32px}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:28px 0;position:relative;z-index:2}.mark{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:10px}.mark i{width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper2);display:grid;place-items:center;font-style:normal}.nav{display:flex;gap:26px}.nav a{text-decoration:none;font-size:.82rem;font-weight:600;color:var(--muted)}.nav a:hover{color:var(--ink)}
+.hero{padding:88px 0 110px;position:relative}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:end}.kicker{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--teal);margin-bottom:20px}.hero h1{font-family:'Newsreader',serif;font-size:clamp(4.5rem,9vw,8.8rem);line-height:.78;letter-spacing:-.055em;font-weight:500;margin:0}.hero h1 em{font-weight:400;color:var(--coral)}
+.hero-copy{font-family:'Newsreader',serif;font-size:clamp(1.45rem,2.5vw,2.15rem);line-height:1.22;margin:0 0 26px}.hero-note{font-size:.88rem;color:var(--muted);max-width:490px}.thread{position:absolute;right:-10%;top:30px;width:520px;height:520px;border:1px solid rgba(30,109,107,.14);border-radius:48% 52% 62% 38% / 38% 43% 57% 62%;transform:rotate(17deg);z-index:-1}.thread:after{content:'?';font-family:'Newsreader',serif;position:absolute;font-size:24rem;color:rgba(30,109,107,.045);left:110px;top:-40px;transform:rotate(-17deg)}
+.rule{border:0;border-top:1px solid var(--line);margin:0}.section{padding:105px 0}.eyebrow{display:flex;align-items:center;gap:12px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:18px}.eyebrow:before{content:'';width:34px;height:2px;background:currentColor}.section-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:45px}.section h2{font-family:'Newsreader',serif;font-size:clamp(3rem,6vw,5.7rem);line-height:.92;letter-spacing:-.045em;font-weight:500;margin:0}.section-intro{font-size:1.05rem;color:var(--muted);max-width:540px;margin:0}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{display:inline-flex;align-items:center;gap:9px;padding:11px 16px;border-radius:999px;text-decoration:none;font-size:.82rem;font-weight:700;border:1px solid var(--ink);transition:.2s}.btn.primary{background:var(--ink);color:var(--paper2)}.btn:hover{transform:translateY(-2px)}
+.feature-card{background:var(--paper2);border:1px solid var(--line);border-radius:26px;padding:18px;box-shadow:var(--shadow)}.feature-card img{display:block;width:100%;height:auto;border-radius:15px}.feature-caption{display:flex;justify-content:space-between;gap:20px;padding:18px 8px 6px;color:var(--muted);font-size:.8rem}.feature-caption strong{color:var(--ink)}
+.books{display:grid;grid-template-columns:1fr 1fr;gap:28px}.book{display:grid;grid-template-columns:42% 58%;background:var(--paper2);border:1px solid var(--line);border-radius:24px;overflow:hidden;min-height:470px;box-shadow:0 12px 34px rgba(31,41,44,.07)}.book-art{padding:24px;display:flex;align-items:center;justify-content:center;position:relative}.book:nth-child(1) .book-art{background:#e8e0d1}.book:nth-child(2) .book-art{background:#dfe9e5}.book-art img{width:100%;max-width:260px;height:auto;box-shadow:0 18px 32px rgba(24,36,42,.22);transform:rotate(-1.4deg)}.book:nth-child(2) .book-art img{transform:rotate(1.4deg)}
+.book-copy{padding:38px 34px;display:flex;flex-direction:column;justify-content:center}.book-copy .label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:12px}.book-copy h3{font-family:'Newsreader',serif;font-size:2.25rem;line-height:1.02;font-weight:500;margin:0 0 12px}.book-copy .subtitle{font-size:.82rem;color:var(--muted);font-weight:600;line-height:1.4;margin-bottom:20px}.book-copy p{font-size:.92rem;color:var(--muted);margin:0}.book-copy .quote{font-family:'Newsreader',serif;color:var(--ink);font-size:1.16rem;line-height:1.3;border-left:2px solid var(--gold);padding-left:14px;margin:24px 0 4px}.text-link{display:inline-flex;align-items:center;gap:6px;margin-top:24px;font-size:.78rem;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.08em}.text-link:hover{color:var(--teal)}
+.game-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}.game-board{background:#fff9ee;border:1px solid var(--line);border-radius:28px;padding:34px;box-shadow:var(--shadow);transform:rotate(-1deg)}.game-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}.target{font-family:'Newsreader',serif;font-size:3.8rem;line-height:1}.target small{font-family:'DM Sans',sans-serif;display:block;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}.strikes{font-size:1.25rem;letter-spacing:5px;color:var(--coral)}.numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.num{aspect-ratio:1;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;font-family:'Newsreader',serif;font-size:2rem;background:white}.num.hot{background:var(--teal2);border-color:rgba(30,109,107,.35)}.num.warm{background:#f2e2d6;border-color:rgba(197,106,76,.35)}.game-foot{display:flex;justify-content:space-between;margin-top:22px;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.game-copy h2{font-size:clamp(3.5rem,6vw,6rem)}.game-copy .proud{font-family:'Newsreader',serif;font-size:1.5rem;color:var(--coral);margin:0 0 16px}.game-copy p{font-size:1rem;color:var(--muted);max-width:520px}.archive{padding:70px 0 85px}.archive details{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}.archive summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-size:.83rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}.archive summary::-webkit-details-marker{display:none}.archive summary:after{content:'+';font-size:1.1rem}.archive details[open] summary:after{content:'−'}.archive-body{padding:28px 0 8px;display:flex;gap:34px;flex-wrap:wrap;color:var(--muted);font-size:.88rem}.archive-body a{color:var(--ink)}
+.about{padding:90px 0 70px;background:rgba(255,253,248,.58);border-top:1px solid var(--line)}.about-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:80px}.about h2{font-family:'Newsreader',serif;font-size:clamp(3rem,5vw,5rem);line-height:.95;margin:0;font-weight:500}.about-copy p{font-family:'Newsreader',serif;font-size:1.55rem;line-height:1.35;margin:0 0 18px}.about-copy .small{font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--muted);max-width:620px}.identity{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}.pill{border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--paper2)}
+footer{padding:34px 0 46px;background:rgba(255,253,248,.58)}.footer-row{display:flex;justify-content:space-between;gap:30px;align-items:flex-end;border-top:1px solid var(--line);padding-top:30px}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.footer-links a{text-decoration:none;font-size:.76rem;font-weight:600;color:var(--muted)}.footer-links a:hover{color:var(--ink)}.footer-note{text-align:right;font-size:.76rem;color:var(--muted)}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){.hero-grid,.section-head,.game-wrap,.about-grid{grid-template-columns:1fr;gap:34px}.hero{padding:60px 0 80px}.hero-grid{align-items:start}.hero h1{font-size:clamp(4.2rem,16vw,7.8rem)}.thread{right:-45%;top:0}.books{grid-template-columns:1fr}.book{min-height:430px}.section{padding:78px 0}.about{padding:75px 0 55px}}
+@media(max-width:620px){.hero{overflow:hidden}.thread{right:-10px;top:70px;width:300px;height:300px}.thread:after{font-size:16rem;left:70px;top:-20px}.shell{width:min(100% - 26px,1180px)}.topbar{padding:20px 0}.nav{display:none}.mark{font-size:.7rem}.hero{padding-top:48px}.hero h1{line-height:.82}.hero-copy{font-size:1.4rem}.section{padding:62px 0}.section h2{font-size:3.4rem}.book{grid-template-columns:1fr}.book-art{padding:28px 70px}.book-copy{padding:30px 26px}.game-board{padding:24px}.numbers{gap:8px}.about-copy p{font-size:1.3rem}.footer-row{align-items:flex-start;flex-direction:column}.footer-note{text-align:left}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn{transition:none}}
 </style>
 </head>
 <body>
-
-<div class="scene">
-  <div class="scene-base"></div>
-  <div class="god-rays"></div>
-  <div class="light-source"></div>
-  <div class="bloom-left"></div>
-  <div class="bloom-right"></div>
-</div>
-
-<div class="particles" id="particles"></div>
-
-<div class="page">
-  <header>
-    <h1>Marisombra</h1>
-    <p class="tagline">games, words, and things that feel like something</p>
-  </header>
-
-  <div class="divider"><div class="div-line"></div><div class="div-gem"></div><div class="div-line"></div></div>
-
-  <div class="bio">
-    <p>
-      I make <em>things that feel like something</em> — games that live in the in-between,
-      apps that quietly change your day, and books that leave you with the lights still on.<br><br>
-      I write under the name <strong>Mari Sombra</strong>. I build apps as <strong>Marisombra</strong>.
-      The thread running through all of it is the same: <em>small, deliberate things
-      that reach you somewhere real.</em><br><br>
-      Between logic and chaos, between who you are and who you want to be —
-      <strong>there is a place worth exploring.</strong>
-    </p>
+<header class="shell topbar">
+  <div class="mark"><i>?</i><span>Questions, made tangible.</span></div>
+  <nav class="nav" aria-label="Primary"><a href="#work">Selected work</a><a href="#books">Books</a><a href="#about">About</a></nav>
+</header>
+<main>
+<section class="hero shell">
+  <div class="thread" aria-hidden="true"></div>
+  <div class="hero-grid">
+    <div><div class="kicker">Independent work by Patricia M. Purtill</div><h1>Questions worth <em>following.</em></h1></div>
+    <div><p class="hero-copy">I get interested in questions that look simple until you pull on them. Then I follow the thread until it becomes a book, a useful tool, or occasionally a game.</p><p class="hero-note">Writing now appears under my real name. Games, when I make them, still go out under <strong>Marisombra</strong>.</p></div>
   </div>
-
-  <div class="divider"><div class="div-line"></div><div class="div-gem"></div><div class="div-line"></div></div>
-
-  <p class="section-label">Apps &amp; Games</p>
-
-  <div class="grid-2">
-    <div class="card rose">
-      <div class="card-accent"></div>
-      <h2>They're Not Adding Up!</h2>
-      <p class="sub">just math and mischief</p>
-      <p>A numbers game that thinks it's smarter than you. Match the target sum before the shadows take you. Three strikes. Zen mode for when the panic gets too polite.</p>
-      <a class="cta" href="theyre-not-adding-up.html">Play now →</a>
-    </div>
-    <div class="card teal">
-      <div class="card-accent"></div>
-      <h2>One Small Thing</h2>
-      <p class="sub">a daily practice for connection</p>
-      <p>One small, actionable thing. Every day. For couples who want to feel closer. For anyone learning to feel at home in their own skin. 365 days of original content — warm, honest, human.</p>
-      <a class="cta" href="https://onesmallthing.eu" target="_blank">Discover it →</a>
-    </div>
+</section>
+<hr class="rule">
+<section class="section shell" id="work">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">Featured system</div><h2>From passport to front door.</h2></div>
+    <div><p class="section-intro">Relocating is really two different problems. <strong>LiveCompass</strong> asks where you can realistically live, based on legal routes and your priorities. Once a destination is viable, <strong>PisoLive</strong> zooms all the way in to what everyday life around a real place would actually look like.</p><div class="btns"><a class="btn primary" href="https://livecompass.world" target="_blank" rel="noopener">Explore LiveCompass ↗</a><a class="btn" href="https://pisolive.com" target="_blank" rel="noopener">Explore PisoLive ↗</a></div></div>
   </div>
-
-  <div class="divider"><div class="div-line"></div><div class="div-gem"></div><div class="div-line"></div></div>
-
-  <p class="section-label">The Closer Connection Series</p>
-
-  <div class="books-grid">
-    <div class="book-card">
-      <div class="book-num">Book One</div>
-      <h3>30 Days to a Closer Connection</h3>
-      <p class="book-sub">where it begins</p>
-      <p>Thirty invitations into warmth, presence, and the quiet art of showing up — for the people you love, and for yourself.</p>
-      <a class="buy" href="https://www.amazon.com/dp/B0GHQX7G5K" target="_blank">Read on Kindle →</a>
-    </div>
-    <div class="book-card">
-      <div class="book-num">Book Two</div>
-      <h3>Another 30 Days</h3>
-      <p class="book-sub">a collection of invitations</p>
-      <p>The invitations go deeper. On one side: the prompt. On the other: a short scene showing what happens when someone says yes. Every scene ends just before the most interesting part.</p>
-      <a class="buy" href="https://www.amazon.com/dp/B0GX1T3Q3D" target="_blank">Read on Kindle →</a>
-    </div>
-    <div class="book-card">
-      <div class="book-num">Book Three</div>
-      <h3>Coming Soon</h3>
-      <p class="book-sub">the series continues</p>
-      <p>The third chapter is on its way. The pages will turn differently again. Some things are worth the wait.</p>
-      <span class="coming">Coming soon</span>
-    </div>
+  <figure class="feature-card reveal">
+    <img src="assets/livecompass-pisolive.png" alt="Infographic showing LiveCompass finding a legally viable country and PisoLive evaluating local life, housing, costs, and nearby essentials.">
+    <figcaption class="feature-caption"><span><strong>One journey, two scales.</strong> Global feasibility first. Local reality second.</span><span>LiveCompass.world → PisoLive.com</span></figcaption>
+  </figure>
+</section>
+<hr class="rule">
+<section class="section shell" id="books">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">Latest books</div><h2>Two questions that refused to stay small.</h2></div>
+    <p class="section-intro">Both started with something ordinary enough to overlook: who gets to define a relationship, and what a line on a map is allowed to do. Pull gently. Entire systems come attached.</p>
   </div>
-
-  <div class="divider"><div class="div-line"></div><div class="div-gem"></div><div class="div-line"></div></div>
-
-  <div class="about">
-    <div class="about-block">
-      <h3>The maker</h3>
-      <p>Writer, app maker, game developer. I build things that feel like something — games, apps, daily practices, short fiction. I follow what pulls at me and I ship from wherever I am. Currently: <em>Portimão, Portugal.</em></p>
-    </div>
-    <div class="about-block">
-      <h3>The studio</h3>
-      <p>Part of <em>FoxPur Studios</em> — building at the edges of what's supposed to be possible, through human-AI collaboration. Games, tools, experiences, words. Whatever comes next.</p>
-    </div>
+  <div class="books">
+    <article class="book reveal">
+      <div class="book-art"><img src="assets/who-decides-cover.jpg" alt="Cover of Who Decides What a Relationship Is Worth? by Patricia M. Purtill"></div>
+      <div class="book-copy"><div class="label">New book · 2026</div><h3>Who Decides What a Relationship Is Worth?</h3><div class="subtitle">Love, Legitimacy, and the Limits of Outside Judgment</div><p>Who gets to say what a relationship means, whether it counts, and what follows from that judgment? A warm, research-grounded look at how authority gets divided among the people living a relationship and the outsiders with power over it.</p><p class="quote">Sometimes several people can be right about different parts of the same situation.</p><a class="text-link" href="https://www.amazon.com/dp/B0HH3GKN25" target="_blank" rel="noopener">View on Amazon →</a></div>
+    </article>
+    <article class="book reveal">
+      <div class="book-art"><img src="assets/line-on-map-cover.jpg" alt="Cover of When Does a Line on a Map Become a Fact in the World? by Patricia M. Purtill"></div>
+      <div class="book-copy"><div class="label">New book · 2026</div><h3>When Does a Line on a Map Become a Fact in the World?</h3><div class="subtitle">How Invisible Boundaries Shape Where We Live, What We Get, and What Happens Next</div><p>A line can be invisible on the ground and still decide your school, your insurance, your transplant priority, what can be built next door, or which side of a rule you wake up on. This book follows the moment mapped categories become lived reality.</p><p class="quote">The address is singular. The institutional geographies are plural.</p><a class="text-link" href="https://www.amazon.com/dp/B0HH6X1DBP" target="_blank" rel="noopener">View on Amazon →</a></div>
+    </article>
   </div>
-
-  <footer>
-    <div class="links">
-      <a href="https://marisombra.itch.io" target="_blank">itch.io</a>
-      <a href="https://foxpur-studios.com" target="_blank">foxpur studios</a>
-      <a href="https://onesmallthing.eu" target="_blank">one small thing</a>
-      <a href="https://www.tiktok.com/@marissombra" target="_blank">tiktok</a>
-      <a href="https://github.com/marisombra-dev" target="_blank">github</a>
-
+</section>
+<hr class="rule">
+<section class="section shell">
+  <div class="game-wrap">
+    <div class="game-board reveal" aria-label="Stylized preview of They're Not Adding Up">
+      <div class="game-top"><div class="target"><small>Target</small>23</div><div class="strikes" aria-label="three strikes">● ● ●</div></div>
+      <div class="numbers"><div class="num hot">8</div><div class="num">4</div><div class="num warm">7</div><div class="num">11</div><div class="num">3</div><div class="num hot">9</div><div class="num">6</div><div class="num warm">5</div></div>
+      <div class="game-foot"><span>Choose your numbers</span><span>Zen mode · pressure optional</span></div>
     </div>
-    <p>I code in English, dream in Spanish, and build wherever the Wi-Fi works. &nbsp;·&nbsp; <a href="mailto:hello@foxpur-studios.com">hello@foxpur-studios.com</a></p>
-  </footer>
-</div>
-
+    <div class="game-copy reveal"><div class="eyebrow">Still proud of this one</div><h2>They’re Not Adding Up!</h2><p class="proud">A tiny act of mathematical hostility.</p><p>Match the target sum before the game decides you’ve had enough chances. Three strikes, increasingly unhelpful pressure, and a Zen mode for anyone who would rather do arithmetic without being emotionally heckled.</p><a class="btn primary" href="theyre-not-adding-up.html" style="margin-top:20px">Play it →</a></div>
+  </div>
+</section>
+<hr class="rule">
+<section class="archive shell">
+  <details class="reveal">
+    <summary><span>Earlier work in connection and relationships</span><span aria-hidden="true"></span></summary>
+    <div class="archive-body"><span>The completed <strong>Closer Connection</strong> series: <a href="https://www.amazon.com/dp/B0GHQX7G5K" target="_blank" rel="noopener">30 Days to a Closer Connection</a> · <a href="https://www.amazon.com/dp/B0GX1T3Q3D" target="_blank" rel="noopener">Another 30 Days</a></span><span><a href="https://onesmallthing.eu" target="_blank" rel="noopener">One Small Thing</a>, a daily connection practice</span></div>
+  </details>
+</section>
+<section class="about" id="about">
+  <div class="shell about-grid reveal">
+    <div><div class="eyebrow">About the person behind it</div><h2>Patricia M. Purtill</h2></div>
+    <div class="about-copy"><p>I write books and build tools around questions that change how ordinary life looks once you notice them.</p><p class="small">The subjects wander, but the habit is consistent: start with a real human problem, research it seriously, make the underlying system understandable, and turn the result into something people can actually use or enjoy. Writing now appears under my own name. Games retain the Marisombra name. Based in Metro Manila.</p><div class="identity"><span class="pill">Writer</span><span class="pill">Independent researcher</span><span class="pill">Builder</span><span class="pill">Marisombra for games</span></div></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="shell footer-row">
+    <div><div class="footer-links"><a href="https://livecompass.world" target="_blank" rel="noopener">LiveCompass</a><a href="https://pisolive.com" target="_blank" rel="noopener">PisoLive</a><a href="https://foxpur-studios.com" target="_blank" rel="noopener">FoxPur Studios</a><a href="https://github.com/marisombra-dev" target="_blank" rel="noopener">GitHub</a><a href="privacy.html">Privacy</a></div></div>
+    <div class="footer-note">Patricia M. Purtill · Metro Manila<br><a href="mailto:hello@foxpur-studios.com">hello@foxpur-studios.com</a></div>
+  </div>
+</footer>
 <script>
-  const c = document.getElementById('particles');
-  const cols = ['rgba(255,200,80,.9)','rgba(240,160,80,.7)','rgba(255,180,120,.6)','rgba(220,100,120,.5)','rgba(180,140,255,.4)','rgba(255,255,200,.8)'];
-  for(let i=0;i<50;i++){
-    const m=document.createElement('div');
-    m.className='mote';
-    const s=Math.random()*3+.5, d=(Math.random()-.5)*80;
-    m.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${cols[Math.floor(Math.random()*cols.length)]};--drift:${d}px;animation-duration:${Math.random()*15+10}s;animation-delay:-${Math.random()*20}s`;
-    c.appendChild(m);
-  }
+const observer=new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
